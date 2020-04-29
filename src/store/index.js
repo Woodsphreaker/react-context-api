@@ -12,12 +12,12 @@ const combineProviders = (providers, children) => {
     return children
   }
 
-  return <Provider> {combineProviders(providers.slice(1), children)} </Provider>
+  return <Provider>{combineProviders(providers.slice(1), children)}</Provider>
 }
 
 const Provider = ({ children }) => {
   return (
-    <RootProvider.Provider>
+    <RootProvider.Provider testProp={123}>
       {combineProviders(rootContext, children)}
     </RootProvider.Provider>
   )

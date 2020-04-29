@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState } from 'react'
 import propTypes from 'prop-types'
 
+import history from '../../services/history'
 import siginService from '../../services/signin'
 
 const INITIAL_VALUE = {
@@ -17,13 +18,24 @@ export const AuthProvider = ({ children }) => {
   const [signed, setSigned] = useState(false)
   const [loading, setLoading] = useState(false)
 
-  const signIn = async () => {
-    setLoading(true)
-    const result = await siginService()
+  const signinSuccess = (result) => {
     setUser(result.name)
     setToken(result.token)
     setSigned(true)
     setLoading(false)
+    history.push('/home')
+  }
+
+  const signIn = async ({ loginUser, loginPwd }) => {
+    setLoading(true)
+
+    try {
+      const result = await siginService({ loginUser, loginPwd })
+      signinSuccess(result)
+    } catch (error) {
+      setSigned(false)
+      setLoading(false)
+    }
   }
 
   return (

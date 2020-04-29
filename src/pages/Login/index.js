@@ -5,12 +5,13 @@ import useAuth from '../../store/Auth'
 import { Container, Content, Title, SubmitButton } from './styles'
 
 export default function Login() {
-  const [textInput, setTextInput] = useState('')
-  const { user, token, loading, signIn } = useAuth()
+  const [loginUser, setLoginUser] = useState('')
+  const [loginPwd, setLoginPass] = useState('')
+  const { loading, signIn } = useAuth()
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    signIn()
+    signIn({ loginUser, loginPwd })
   }
 
   return (
@@ -25,14 +26,18 @@ export default function Login() {
             <input
               type="text"
               placeholder="ENTER YOUR NAME"
-              value={textInput}
-              onChange={(event) => setTextInput(event.target.value)}
+              value={loginUser}
+              onChange={(event) => setLoginUser(event.target.value)}
             />
-            <SubmitButton disabled={!textInput}>
+            <input
+              type="password"
+              placeholder="PASSWORD (123)"
+              value={loginPwd}
+              onChange={(event) => setLoginPass(event.target.value)}
+            />
+            <SubmitButton disabled={!loginUser}>
               {loading ? 'AGUARDE...' : 'LOGIN'}
             </SubmitButton>
-            name: {user}
-            token: {token}
           </form>
         </Content>
       </Container>
