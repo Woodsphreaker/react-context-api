@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState } from 'react'
 import propTypes from 'prop-types'
+import { toast } from 'react-toastify'
 
 import history from '../../services/history'
 import siginService from '../../services/signin'
@@ -22,8 +23,10 @@ export const AuthProvider = ({ children }) => {
     setUser(result.name)
     setToken(result.token)
     setSigned(true)
-    setLoading(false)
-    history.push('/home')
+    toast.success(
+      `Olá ${user}, seu login foi efetuado com sucesso e você será redirecionado em instantes`
+    )
+    setTimeout(history.push, 3000, '/home')
   }
 
   const signIn = async ({ loginUser, loginPwd }) => {
@@ -31,10 +34,18 @@ export const AuthProvider = ({ children }) => {
 
     try {
       const result = await siginService({ loginUser, loginPwd })
-      signinSuccess(result)
+      const { error, message } = result
+
+      if (error) {
+        setLoading(false)
+        return toast.error(message)
+      }
+
+      return signinSuccess(result)
     } catch (error) {
       setSigned(false)
       setLoading(false)
+      return false
     }
   }
 
