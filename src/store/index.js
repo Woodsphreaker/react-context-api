@@ -17,7 +17,7 @@ const combineProviders = (providers, children) => {
 
 const Provider = ({ children }) => {
   return (
-    <RootProvider.Provider testProp={123}>
+    <RootProvider.Provider>
       {combineProviders(rootContext, children)}
     </RootProvider.Provider>
   )

@@ -9,6 +9,10 @@ export default function Login() {
   const [loginPwd, setLoginPass] = useState('')
   const { loading, signIn } = useAuth()
 
+  const computed = () => {
+    return loginUser && loginPwd
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault()
     signIn({ loginUser, loginPwd })
@@ -35,7 +39,7 @@ export default function Login() {
               value={loginPwd}
               onChange={(event) => setLoginPass(event.target.value)}
             />
-            <SubmitButton disabled={!loginUser}>
+            <SubmitButton disabled={!computed()}>
               {loading ? 'AGUARDE...' : 'LOGIN'}
             </SubmitButton>
           </form>

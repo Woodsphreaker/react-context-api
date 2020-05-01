@@ -1,7 +1,7 @@
-import React, { createContext, useContext, useState } from 'react'
+import React, { createContext, useContext, useState, useEffect } from 'react'
 import propTypes from 'prop-types'
 import { toast } from 'react-toastify'
-
+import { getStorage, setStorage } from '../../services/storage'
 import history from '../../services/history'
 import siginService from '../../services/signin'
 
@@ -19,10 +19,23 @@ export const AuthProvider = ({ children }) => {
   const [signed, setSigned] = useState(false)
   const [loading, setLoading] = useState(false)
 
+  useEffect(() => {
+    const storageUserData = getStorage('user')
+    if (storageUserData) {
+      setUser(storageUserData.name)
+      setToken(storageUserData.token)
+      setSigned(true)
+      history.push('/home')
+    }
+  }, [])
+
   const signinSuccess = (result) => {
     setUser(result.name)
     setToken(result.token)
     setSigned(true)
+
+    setStorage('user', { ...result })
+
     toast.success(
       `Olá ${user}, seu login foi efetuado com sucesso e você será redirecionado em instantes`
     )
@@ -49,8 +62,15 @@ export const AuthProvider = ({ children }) => {
     }
   }
 
+  const logoff = () => {
+    setStorage('user', '')
+    setSigned(false)
+  }
+
   return (
-    <AuthContext.Provider value={{ user, token, signed, loading, signIn }}>
+    <AuthContext.Provider
+      value={{ user, token, signed, loading, signIn, logoff }}
+    >
       {children}
     </AuthContext.Provider>
   )

@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 import 'react-toastify/dist/ReactToastify.css'
+import bg from '../assets/images/hooks-bg.png'
 
 export default createGlobalStyle`
 
@@ -19,6 +20,7 @@ export default createGlobalStyle`
   body {
     font-size: 14px;
     font-family: Roboto, sans-serif;
+    background-image: ${`url(${bg})`}
   }
 
   a {

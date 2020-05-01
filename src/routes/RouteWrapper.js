@@ -16,5 +16,5 @@ const RouterWrapper = ({ component: Component, ...rest }) => {
 export default RouterWrapper
 
 RouterWrapper.propTypes = {
-  component: PropTypes.oneOf([PropTypes.element, PropTypes.func]).isRequired,
+  component: PropTypes.func.isRequired,
 }
