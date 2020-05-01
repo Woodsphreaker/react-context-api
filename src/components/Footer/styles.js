@@ -24,6 +24,11 @@ const Content = styled.div`
     font-size: 18px;
     margin: 10px 0;
   }
+
+  a {
+    text-decoration: none;
+    color: #999;
+  }
 `
 
 export { Container, Content }

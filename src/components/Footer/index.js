@@ -12,7 +12,16 @@ export default function Footer() {
       <Container>
         <Content>
           <p>
-            React Context Api With Hooks By <strong>Woods</strong>
+            React Context Api With Hooks By{' '}
+            <strong>
+              <a
+                href="https://github.com/Woodsphreaker"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                @Woods
+              </a>
+            </strong>
           </p>
           <span>{counter}</span>
         </Content>
