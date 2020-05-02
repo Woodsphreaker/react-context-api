@@ -10,10 +10,10 @@ export default function Login() {
   const { loading, signIn } = useAuth()
 
   const computed = () => {
-    return loginUser && loginPwd
+    return loginUser && loginPwd && !loading
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = event => {
     event.preventDefault()
     signIn({ loginUser, loginPwd })
   }
@@ -31,13 +31,13 @@ export default function Login() {
               type="text"
               placeholder="ENTER YOUR NAME"
               value={loginUser}
-              onChange={(event) => setLoginUser(event.target.value)}
+              onChange={event => setLoginUser(event.target.value)}
             />
             <input
               type="password"
               placeholder="PASSWORD (123)"
               value={loginPwd}
-              onChange={(event) => setLoginPass(event.target.value)}
+              onChange={event => setLoginPass(event.target.value)}
             />
             <SubmitButton disabled={!computed()}>
               {loading ? 'AGUARDE...' : 'LOGIN'}

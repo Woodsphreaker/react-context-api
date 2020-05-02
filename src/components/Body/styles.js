@@ -28,6 +28,7 @@ const Content = styled.div`
 const Description = styled.p`
   font-size: 18px;
   color: #999;
+  text-align: center;
 `
 
 const Controls = styled.div`
@@ -42,7 +43,7 @@ const Button = styled.button`
   border: none;
   border-radius: 5px;
   font-size: 40px;
-  background-color: ${(props) => props.color || '#ccc'};
+  background-color: ${props => props.color || '#ccc'};
   transition: background 0.4s;
 
   &:hover {

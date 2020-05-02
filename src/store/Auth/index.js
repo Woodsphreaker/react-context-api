@@ -29,7 +29,7 @@ export const AuthProvider = ({ children }) => {
     }
   }, [])
 
-  const signinSuccess = (result) => {
+  const signinSuccess = result => {
     setUser(result.name)
     setToken(result.token)
     setSigned(true)
@@ -37,9 +37,16 @@ export const AuthProvider = ({ children }) => {
     setStorage('user', { ...result })
 
     toast.success(
-      `Olá ${user}, seu login foi efetuado com sucesso e você será redirecionado em instantes`
+      `Olá ${
+        result.name
+      }, seu login foi efetuado com sucesso e você será redirecionado em instantes`,
+      {
+        onClose: () => {
+          history.push('/home')
+          setLoading(false)
+        },
+      }
     )
-    setTimeout(history.push, 3000, '/home')
   }
 
   const signIn = async ({ loginUser, loginPwd }) => {

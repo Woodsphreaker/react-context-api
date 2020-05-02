@@ -14,13 +14,14 @@ export default createGlobalStyle`
   }
 
   html, body, #root {
-    height: 100%
-  }
+    height: 100%;
+ }
 
   body {
     font-size: 14px;
     font-family: Roboto, sans-serif;
-    background-image: ${`url(${bg})`}
+    background-image: ${`url(${bg})`};
+    background-position: top; 
   }
 
   a {

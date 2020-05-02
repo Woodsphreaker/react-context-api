@@ -6,17 +6,8 @@ const Container = styled.div`
   align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
   height: 100%;
+  padding: 20px;
   opacity: 0.96;
-`
-
-const Title = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-
-  svg {
-    margin-right: 10px;
-  }
 `
 
 const Content = styled.div`
@@ -56,7 +47,17 @@ const Content = styled.div`
   }
 `
 
-const SubmitButton = styled.button.attrs((props) => {
+const Title = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  svg {
+    margin-right: 10px;
+  }
+`
+
+const SubmitButton = styled.button.attrs(props => {
   return {
     type: 'submit',
   }
@@ -65,7 +66,7 @@ const SubmitButton = styled.button.attrs((props) => {
   margin: 0 0 0 0;
   border: none;
   border-radius: 5px;
-  background: ${(props) => (props.disabled ? '#ccc' : '#3b93ff')};
+  background: ${props => (props.disabled ? '#ccc' : '#3b93ff')};
   color: #fff;
   font-size: 18px;
   font-weight: bold;
@@ -73,7 +74,7 @@ const SubmitButton = styled.button.attrs((props) => {
   transition: background 0.3s;
 
   &:hover {
-    background: ${(props) => (props.disabled ? '#ccc' : '#215ea9')};
+    background: ${props => (props.disabled ? '#ccc' : '#215ea9')};
   }
 `
 
