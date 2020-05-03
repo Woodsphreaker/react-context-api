@@ -1,5 +1,16 @@
 # React Context API
 
+Simple example to using React Context Api to sharing the application state for many components.
+
+**Multiple contexts support with only one root provider**
+
+## How to run
+- Clone this project in your computer
+- Go to the folder you chose for this project
+- In terminal, type `npm install` or `yarn` and press `enter`
+- After installing all depencies, type `npm start` or `yarn start` 
+- Success, your application should be running now 
+
 ### Checklist
 
 - [x] Create a basic structure for project ( CRA )
@@ -33,4 +44,9 @@
 
 - [x] Connect store provider to application
 
- 
+ ## Screens
+ ![Login](./screens/login.png)
+ ![Main](./screens/main.png)
+
+ ## License
+ Distributed under the MIT license. See `LICENSE` form more information.
