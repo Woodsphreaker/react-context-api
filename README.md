@@ -11,7 +11,7 @@ Simple example to using React Context Api to sharing the application state for m
 - After installing all depencies, type `npm start` or `yarn start` 
 - Success, your application should be running now 
 
-### Checklist
+## Checklist
 
 - [x] Create a basic structure for project ( CRA )
 - [x] Create a folder structure for project ( Custom )
@@ -48,5 +48,8 @@ Simple example to using React Context Api to sharing the application state for m
  ![Login](./screens/login.png)
  ![Main](./screens/main.png)
 
+ ## Live test
+ https://lgct9.csb.app/
+ 
  ## License
  Distributed under the MIT license. See `LICENSE` form more information.
