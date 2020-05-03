@@ -1,6 +1,6 @@
 # React Context API
 
-## Checklist
+### Checklist
 
 - [x] Create a basic structure for project ( CRA )
 - [x] Create a folder structure for project ( Custom )
