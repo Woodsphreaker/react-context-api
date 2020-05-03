@@ -48,7 +48,7 @@ Simple example to using React Context Api to sharing the application state for m
  ![Login](./screens/login.png)
  ![Main](./screens/main.png)
 
- ## Live test
+ ## Live preview
  https://lgct9.csb.app/
  
  ## License
